@@ -30,74 +30,89 @@
 
 
         // 2. Написать функцию, которая вычисляет факториал переданного ей числа
-        function factorial(n) 
-        {
-            if (n === 0 || n === 1) 
-            {
-                return 1;
-            } 
-            else 
-            {
-                return n * factorial(n - 1);
-            }
-        }
-
-        let n = 5;
-        console.log(`Факториал числа: ${n} = ${factorial(n)}`);
+        // function factorial(num) 
+        // {
+        //     if (num === 0 || num === 1) 
+        //     {
+        //         return 1;
+        //     } 
+        //     else 
+        //     {
+        //         return num * factorial(num - 1);
+        //     }
+        // }
+        // let num = 12;
+        // console.log(`Факториал числа: ${num} = ${factorial(num)}`);
 
         // 3. Написать функцию, которая принимает три отдельные цифры и превращает их в одно число. Например: цифры 1, 4, 9 превратятся в число 149.
-        function ToString(a, b, c) 
-        {
-            return `${a}${b}${c}`;
-        }
+        // function ToString(a, b, c) 
+        // {
+        //     return `${a}${b}${c}`;
+        // }
 
-        let a = 1;
-        let b = 4;
-        let c = 9;
+        // let a = 1;
+        // let b = 4;
+        // let c = 9;
 
-        console.log(ToString(a, b, c));
+        // console.log(ToString(a, b, c));
 
 
         // 4. Написать функцию, которая принимает длину и ширину прямоугольника и вычисляет его площадь. Если в функцию передали 1 параметр, то она вычисляет площадь квадрата.
-        function calculateArea(a, b = a) 
-        {
-            if (b === undefined) 
-            {
-                b = a;
-            }
+        // function getArea(a, b = a) 
+        // {
+        //     if (b === undefined) 
+        //     {
+        //         b = a;
+        //     }
 
-            return a * b;
-        }
+        //     return a * b;
+        // }
 
-        console.log(`Площадь: ${calculateArea(5, 10)}`);
-        console.log(`Площадь: ${calculateArea(5)}`);
+        // console.log(`Площадь: ${getArea(5, 10)}`);
+        // console.log(`Площадь: ${getArea(5)}`);
 
 
         // 5. Написать функцию, которая проверяет, является ли переданное ей число совершенным. Совершенное число – это
         // число, равное сумме всех своих собственных делителей.
 
-        let isPerfectNumber = a => 
-        { 
-            let sum = 0;
+        function isPerfectNumber(n) {
+            if (n <= 1) {
+                return false;
+            }
 
-            for(let i = 0; i < a; i++)
-                a % i == 0 ? sum += i : null;
+            let sum = 1;
 
-            return sum == a ? 1 : 0;
+            for (let i = 2; i * i <= n; i++) {
+                if (n % i === 0) {
+                sum += i;
+                if (i * i === n) {
+                    sum -= i;
+                }
+                }
+            }
+
+            return sum === n;
         }
 
-        a = 28;
-        if (isPerfectNumber(a))
-            console.log(`Число ${a} является совершенным числом!`);
-        else
-            console.log(`Число ${a} не является совершенным числом!`);
+        let a = 28;
+
+        if (isPerfectNumber(a)) 
+        {
+        console.log(`Число ${a} является совершенным числом!`);
+        } else 
+        {
+        console.log(`Число ${a} не является совершенным числом!`);
+        }
 
         a = 27;
-        if (isPerfectNumber(a))
-            console.log(`Число ${a} является совершенным числом!`);
-        else
-            console.log(`Число ${a} не является совершенным числом!`);
 
+        if (isPerfectNumber(a)) 
+        {
+        console.log(`Число ${a} является совершенным числом!`);
+        } else 
+        {
+        console.log(`Число ${a} не является совершенным числом!`);
+        }
 
         // 6. Написать функцию, которая принимает минимальное и максимальное значения для диапазона, и выводит только те числа из диапазона, которые являются совершенными.
         // Используйте написанную ранее функцию, чтобы узнавать, совершенное число или нет.
