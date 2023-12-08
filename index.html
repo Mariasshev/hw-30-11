@@ -116,26 +116,35 @@
 
         // 6. Написать функцию, которая принимает минимальное и максимальное значения для диапазона, и выводит только те числа из диапазона, которые являются совершенными.
         // Используйте написанную ранее функцию, чтобы узнавать, совершенное число или нет.
-        let findPerfectNumbersInRange = (a, b) => {
-            for (let i = a; i <= b; i++)
-                isPerfectNumber(i) ? console.log(`Число ${i} является совершенным!`) : null;
+        function findPerfectNum(a, b) 
+        {
+            let perfectNum = [];
+
+            for (let i = a; i <= b; i++) 
+            {
+                if (isPerfectNumber(i)) 
+                {
+                perfectNum.push(i);
+                }
+            }
+
+            console.log(perfectNum);
         }
 
-        findPerfectNumbersInRange(0, 1000);
+        findPerfectNum(0, 10);
 
 
         // 7. Написать функцию, которая принимает время (часы, минуты, секунды) и выводит его на экран в формате «чч:мм:сс». 
-        let formatTime = (a, b = 0, c = 0) => {
-            a <= 9 ? a = "0" + a : null;
-            b <= 9 ? b = "0" + b : null;
-            c <= 9 ? c = "0" + c : null;
+        function formatTime(hours, minutes, seconds) 
+        {
+            let time = `${hours}:${minutes}:${seconds}`;
 
-            return a + ":" + b + ":" + c;
+            return time.padStart(2, "0");
         }
-        console.log(formatTime(3, 8, 1));
-        console.log(formatTime(25, 10, 15));
-        console.log(formatTime(3));
 
+        console.log(formatTime(2, 4, 5));
+        console.log(formatTime(15, 5, 30));
+        console.log(formatTime(3));
 
         // 8. Написать функцию, которая принимает часы, минуты и секунды и возвращает это время в секундах.
         let getTimeInSeconds = (a, b = 0, c = 0) => { return (a * 3600) + (b * 60) + (c) }
@@ -146,20 +155,20 @@
 
         // 9. Написать функцию, которая принимает количество секунд, переводит их в часы, минуты и секунды и возвращает в
         // виде строки «чч:мм:сс».
-        let retransmitSecondsInTime = a => {
-            let hh = 0;
-            let mm = 0;
-            let ss = 0;
+        let SecInTime = a => {
+            let hour;
+            let minute;
+            let second;
 
-            hh = parseInt(a / 3600);
-            mm = parseInt((a % 3600) / 60);
-            ss = parseInt(a % 60);
+            hour = parseInt(a / 3600);
+            minute = parseInt((a % 3600) / 60);
+            second = parseInt(a % 60);
 
-            return formatTime(hh, mm, ss);
+            return formatTime(hour, minute, second);
         }
 
-        console.log(retransmitSecondsInTime(11281));
-        console.log(retransmitSecondsInTime(90615));
+        console.log(SecInTime(34534));
+        console.log(SecInTime(236264));
 
 
         // 10. Написать функцию, которая считает разницу между датами. 
