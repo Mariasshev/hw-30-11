@@ -172,11 +172,11 @@
 
 
         // 10. Написать функцию, которая считает разницу между датами. 
-        let theDifferenceBetweenDates = (a, b, c, a1, b1, c1) => {
-            return retransmitSecondsInTime(getTimeInSeconds(a, b, c) - getTimeInSeconds(a1, b1, c1));
+        let theDifference = (a, b, c, a1, b1, c1) => {
+            return SecInTime(getTimeInSeconds(a, b, c) - getTimeInSeconds(a1, b1, c1));
         }
 
-        console.log(theDifferenceBetweenDates(25, 10, 15, 3, 8, 1));
+        console.log(theDifference(25, 10, 15, 3, 8, 1));
 
     </script>
 </body>
